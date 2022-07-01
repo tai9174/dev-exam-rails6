@@ -1,4 +1,4 @@
 class Property < ApplicationRecord
-  has_many :station, inverse_of: :property
-  accepts_nested_attributes_for :station
+  has_many :stations, inverse_of: :property, dependent: :destroy
+  accepts_nested_attributes_for :stations,allow_destroy: true, reject_if: :all_blank
 end
